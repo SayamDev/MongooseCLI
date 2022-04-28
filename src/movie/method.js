@@ -16,3 +16,12 @@ exports.deleteMovie = async(movieObj) => {
         console.log(error)
     }
 }
+
+
+exports.listMovie = async () => {
+    try {
+        return await Movie.find({})
+    } catch (error) {
+        console.log(error)
+    }
+}
