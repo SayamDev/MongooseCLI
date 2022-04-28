@@ -1,6 +1,6 @@
 require("./db/connection");
 const yargs = require("yargs");
-const { addMovie } = require("./movie/method");
+const { addMovie, deleteMovie } = require("./movie/method");
 
 const app = async (yargsObj) => {
   try {
@@ -18,11 +18,15 @@ const app = async (yargsObj) => {
       //update movies with filterObj and updateObj
     } else if (yargsObj.delete) {
       //delete movie with filterObj
+        await deleteMovie({ title: yargsObj.title });
+        console.log(`Successfully deleted ${yargsObj.title}`);
     } else {
       console.log("Incorrect command");
+      
     }
   } catch (error) {
     console.log(error);
+    await client.close()
   }
 };
 

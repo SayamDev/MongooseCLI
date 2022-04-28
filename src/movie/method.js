@@ -7,3 +7,12 @@ exports.addMovie = async (movieObj) => {
     console.log(error);
   }
 };
+
+
+exports.deleteMovie = async(movieObj) => {
+    try {
+        await Movie.deleteOne(movieObj)
+    } catch (error) {
+        console.log(error)
+    }
+}
