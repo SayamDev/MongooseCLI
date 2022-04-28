@@ -1,6 +1,6 @@
 require("./db/connection");
 const yargs = require("yargs");
-const { addMovie, deleteMovie, listMovie } = require("./movie/method");
+const { addMovie, deleteMovie, listMovie, updateMovie } = require("./movie/method");
 
 const app = async (yargsObj) => {
   try {
@@ -13,6 +13,8 @@ const app = async (yargsObj) => {
       //list movies from database
     } else if (yargsObj.update) {
       //update movies with filterObj and updateObj
+      await updateMovie({title: yargsObj.title, actor: yargsObj.actor})
+      console.log(`Successfully updated ${yargsObj.actor}`)
     } else if (yargsObj.delete) {
       //delete movie with filterObj
       await deleteMovie({ title: yargsObj.title });
@@ -38,3 +40,4 @@ app(yargs.argv);
 //node src/app.js --add
 //node src/app.js --delete
 //node src/app.js --list
+//node src/app.js --update
