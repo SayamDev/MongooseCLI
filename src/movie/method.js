@@ -38,8 +38,10 @@ exports.updateMovie = async (movieObj) => {
     }
 }
 
-//filters
-exports.searchMovies = async (movieObj) => {
+//filters---------------
+
+//filter by movie title
+exports.specificMovies = async (movieObj) => {
 	try{
 	return await Movie.find({ title: movieObj.title })
 	} catch (error) {
@@ -47,3 +49,12 @@ exports.searchMovies = async (movieObj) => {
 	}
 }
 
+//filter by actor
+
+exports.specificActor = async (movieObj) => {
+	try{
+	return await Movie.find({ title: movieObj.title })
+	} catch (error) {
+		console.log(error)
+	}
+}

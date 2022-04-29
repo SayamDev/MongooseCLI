@@ -5,7 +5,7 @@ const {
   deleteMovie,
   listMovie,
   updateMovie,
-  searchMovies
+  specificMovies
 } = require("./movie/method");
 
 const app = async (yargsObj) => {
@@ -35,7 +35,7 @@ const app = async (yargsObj) => {
       console.log(`Successfully deleted ${yargsObj.title}`);
     } else if (yargsObj.filter) {
       //filter list by movie 
-      console.log(await searchMovies({ title: yargsObj.title }));
+      console.log(await specificMovies({ title: yargsObj.title }));
     } else {
       console.log("Incorrect command");
     }
