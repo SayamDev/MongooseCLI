@@ -58,3 +58,22 @@ exports.specificActor = async (movieObj) => {
 		console.log(error)
 	}
 }
+
+
+//filer by year
+exports.specificYear = async (movieObj) => {
+	try{
+	return await Movie.find({ year: movieObj.year })
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+//filer by oscar
+exports.specificOscar = async (movieObj) => {
+	try{
+	return await Movie.find({ oscar: movieObj.oscar })
+	} catch (error) {
+		console.log(error)
+	}
+}

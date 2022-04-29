@@ -6,7 +6,9 @@ const {
   listMovie,
   updateMovie,
   specificMovies,
-  specificActor
+  specificActor,
+  specificYear,
+  specificOscar
 } = require("./movie/method");
 
 const app = async (yargsObj) => {
@@ -40,6 +42,8 @@ const app = async (yargsObj) => {
       //filter list by movie 
       console.log(await specificMovies({ title: yargsObj.title }));
       console.log(await specificActor({ actor: yargsObj.actor }));
+      console.log(await specificYear({ year: yargsObj.year }));
+      console.log(await specificOscar({ oscar: yargsObj.oscar }));
     } else {
       console.log("Incorrect command");
     }
