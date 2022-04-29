@@ -10,6 +10,10 @@ const movieSchema = new mongoose.Schema({
     type: String,
     default: "Not specified",
   },
+  oscar: {
+    type: String,
+    default:"Not specified",
+  }
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

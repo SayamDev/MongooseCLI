@@ -31,7 +31,7 @@ exports.updateMovie = async (movieObj) => {
     try {
         await Movie.findOneAndUpdate(
             {title: movieObj.title},
-            {$set: {title: movieObj.title, actor: movieObj.actor}}
+            {$set: {title: movieObj.title, actor: movieObj.actor, oscar: movieObj.oscar}}
         )
     } catch (error) {
         console.log(error)

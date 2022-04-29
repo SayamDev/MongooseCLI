@@ -17,6 +17,7 @@ const app = async (yargsObj) => {
         title: yargsObj.title,
         actor: yargsObj.actor,
         year: yargsObj.year,
+        oscar: yargsObj.oscar
       });
       console.log(`Successfully added ${yargsObj.title}`);
     } else if (yargsObj.list) {
@@ -28,6 +29,7 @@ const app = async (yargsObj) => {
         title: yargsObj.title,
         actor: yargsObj.actor,
         year: yargsObj.year,
+        oscar: yargsObj.oscar
       });
       console.log(`Successfully updated ${yargsObj.actor}`);
     } else if (yargsObj.delete) {
