@@ -1,24 +1,41 @@
 require("./db/connection");
 const yargs = require("yargs");
-const { addMovie, deleteMovie, listMovie, updateMovie } = require("./movie/method");
+const {
+  addMovie,
+  deleteMovie,
+  listMovie,
+  updateMovie,
+  searchMovies
+} = require("./movie/method");
 
 const app = async (yargsObj) => {
   try {
     if (yargsObj.add) {
       //add movie function that takes yargsObj terminal input
-      await addMovie({ title: yargsObj.title, actor: yargsObj.actor });
+      await addMovie({
+        title: yargsObj.title,
+        actor: yargsObj.actor,
+        year: yargsObj.year,
+      });
       console.log(`Successfully added ${yargsObj.title}`);
     } else if (yargsObj.list) {
       console.log(await listMovie());
       //list movies from database
     } else if (yargsObj.update) {
       //update movies with filterObj and updateObj
-      await updateMovie({title: yargsObj.title, actor: yargsObj.actor})
-      console.log(`Successfully updated ${yargsObj.actor}`)
+      await updateMovie({
+        title: yargsObj.title,
+        actor: yargsObj.actor,
+        year: yargsObj.year,
+      });
+      console.log(`Successfully updated ${yargsObj.actor}`);
     } else if (yargsObj.delete) {
       //delete movie with filterObj
       await deleteMovie({ title: yargsObj.title });
       console.log(`Successfully deleted ${yargsObj.title}`);
+    } else if (yargsObj.filter) {
+      //filter list by movie 
+      console.log(await searchMovies({ title: yargsObj.title }));
     } else {
       console.log("Incorrect command");
     }
@@ -35,9 +52,8 @@ app(yargs.argv);
 //     [yargsObj.key]: yargsObj.val,
 //   };
 
-
-
 //node src/app.js --add
 //node src/app.js --delete
 //node src/app.js --list
 //node src/app.js --update
+//node src/app.js --filter 

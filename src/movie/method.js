@@ -37,3 +37,13 @@ exports.updateMovie = async (movieObj) => {
         console.log(error)
     }
 }
+
+//filters
+exports.searchMovies = async (movieObj) => {
+	try{
+	return await Movie.find({ title: movieObj.title })
+	} catch (error) {
+		console.log(error)
+	}
+}
+
