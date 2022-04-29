@@ -53,7 +53,7 @@ exports.specificMovies = async (movieObj) => {
 
 exports.specificActor = async (movieObj) => {
 	try{
-	return await Movie.find({ title: movieObj.title })
+	return await Movie.find({ actor: movieObj.actor })
 	} catch (error) {
 		console.log(error)
 	}
